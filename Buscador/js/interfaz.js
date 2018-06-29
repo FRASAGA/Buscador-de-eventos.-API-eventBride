@@ -31,4 +31,25 @@ class interfaz{
 
             })
     }
+    //metodo para imprimir mensajes 
+    mostrarMensaje(mensaje, clases){
+        const div = document.createElement('div');
+        div.classList = clases;
+        //agregar texto
+        div.appendChild(document.createTextNode(mensaje));
+        //buscar un padre 
+        const buscadorDiv= document.querySelector('#buscador');
+        buscadorDiv.appendChild(div);
+        setTimeout(() => {
+            this.limpiaMensaje();
+        }, 2000);
+
+    }
+    //limpiar o desaparecer div 
+    limpiaMensaje(){
+        const alert = document.querySelector('.alert');
+        if (alert){
+            alert.remove();
+        }
+    }
 }
