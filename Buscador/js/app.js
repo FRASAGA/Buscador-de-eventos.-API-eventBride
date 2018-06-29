@@ -17,7 +17,14 @@ document.getElementById('buscarBtn').addEventListener('click',(e)=>{
     if (textoBuscador!==''){
         eventBride.obtenerEventos (textoBuscador, categoriaSeleccionada)
             .then(eventos => {
-                console.log(eventos);
+                if (eventos.eventos.events.length >0){
+                    //si encuentra eventos imprimirlos
+                    ui.limpiaResultados();
+                    ui.mostrarEventos(eventos.eventos)
+                }else{
+                    // si no hay eventos manda una alerta
+                    ui.mostrarMensaje('No se han encontrado resultados','alert alert-danger mt-4');
+                }
             })
      
     }else{
